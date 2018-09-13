@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import { CharactersComponent } from './characters/characters.component';
-import { DetailComponent } from './characters/detail/detail.component';
+import { CharactersComponent } from './components/characters/characters.component';
+import { DetailComponent } from './components/characters/detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { DetailComponent } from './characters/detail/detail.component';
     DetailComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
