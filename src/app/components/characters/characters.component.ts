@@ -19,7 +19,7 @@ export class CharactersComponent implements OnInit {
       });
   }
 
-  getFilms(url: string) {
+  getCharacterData(url: string) {
     this.charactersService.getCharacterData(url)
       .subscribe(data => {
         this.characterData = JSON.parse(data['_body']);

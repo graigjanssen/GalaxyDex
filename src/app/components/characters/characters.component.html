@@ -1,5 +1,5 @@
 <ul>
-    <li *ngFor="let character of characters" (click)="getFilms(character.url)">{{character.name}}</li>
+    <li *ngFor="let character of characters" (click)="getCharacterData(character.url)">{{character.name}}</li>
 </ul>
-<app-detail></app-detail>
+<app-detail [data]="characterData"></app-detail>
 
