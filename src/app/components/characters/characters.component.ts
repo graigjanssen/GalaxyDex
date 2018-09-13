@@ -9,12 +9,20 @@ import { CharactersService } from '../../services/characters.service';
 })
 export class CharactersComponent implements OnInit {
   characters: any;
+  characterData: any;
   constructor(private charactersService: CharactersService) { }
 
   ngOnInit() {
     this.charactersService.getCharacters()
       .subscribe(data => {
         this.characters = data.characters;
+      });
+  }
+
+  getFilms(url: string) {
+    this.charactersService.getCharacterData(url)
+      .subscribe(data => {
+        this.characterData = JSON.parse(data['_body']);
       });
   }
 }

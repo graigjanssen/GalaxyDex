@@ -12,4 +12,8 @@ export class CharactersService {
         return this.http.get('assets/characters.json')
             .pipe(map((response: Response) => response.json()));
     }
+
+    getCharacterData(url): Observable<Response> {
+        return this.http.get(url);
+    }
 }
