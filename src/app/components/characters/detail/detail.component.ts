@@ -12,18 +12,34 @@ import { DetailService } from '../../../services/detail.service';
   styleUrls: ['./detail.component.sass'],
   providers: [DetailService]
 })
+
 export class DetailComponent implements OnInit, OnChanges {
   @Input() data: any;
-  constructor() { }
+  
+  private character: any;
+  private films: any;
 
-  ngOnInit() {
+  constructor(private detailService: DetailService) { }
+
+  ngOnInit(): void {
     
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    if (!changes.data.firstChange && changes.data.currentValue) {
-      console.log('data we can use: ', changes.data.currentValue);
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.data.currentValue) {
+      this.character = changes.data.currentValue;
+      this.getFilms(this.character.films);
     }
   }
+
+  getFilms(urls: string[]): void {
+    this.detailService.getFilms(urls)
+      .subscribe(data => {
+        this.films = data;
+        console.log(this.films);
+      });
+  }
+
+
 
 }

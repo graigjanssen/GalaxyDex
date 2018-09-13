@@ -1,5 +1,8 @@
 <ul>
-    <li *ngFor="let character of characters" (click)="getCharacterData(character.url)">{{character.name}}</li>
+    <li *ngFor="let character of characters" 
+        (click)="getCharacterData(character.url)">
+        {{character.name}}
+    </li>
 </ul>
 <app-detail [data]="characterData"></app-detail>
 
