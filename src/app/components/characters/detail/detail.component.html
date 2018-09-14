@@ -2,6 +2,7 @@
   <div *ngIf="films">
       <div *ngFor="let film of films">
       <h3>{{film.title}}</h3>
+      <h5>Released: {{film.release_date | date: 'fullDate' }}</h5>
     </div>
   </div>
       
