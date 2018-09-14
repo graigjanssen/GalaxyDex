@@ -38,6 +38,12 @@ export class CharactersComponent implements OnInit {
         if (data) {
           this.characterData = data;
         }
+      }, err => {
+        this.status = {
+          loading: false,
+          success: false,
+          error: true
+        }
       });
   }
 }

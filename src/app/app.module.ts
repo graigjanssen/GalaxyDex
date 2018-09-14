@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { CharactersComponent } from './components/characters/characters.component';
 import { DetailComponent } from './components/characters/detail/detail.component';
@@ -14,7 +13,7 @@ import { DetailComponent } from './components/characters/detail/detail.component
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

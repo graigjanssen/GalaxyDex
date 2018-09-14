@@ -47,7 +47,6 @@ export class DetailComponent implements OnInit, OnChanges {
             error: false
           }
           this.films = data;
-          console.log(this.films);
         }
       });
   }

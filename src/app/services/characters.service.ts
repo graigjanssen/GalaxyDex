@@ -1,19 +1,23 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, catchError } from 'rxjs/operators';
 
 @Injectable()
 export class CharactersService {
-    constructor(private http: Http) {}
+    constructor(private http: HttpClient) {}
 
     getCharacters(): Observable<any> {
-        return this.http.get('assets/characters.json')
-            .pipe(map((response: Response) => response.json()));
+        return this.http.get('assets/characters.json');
     }
 
-    getCharacterData(url): Observable<Response> {
+    getCharacterData(url): Observable<any> {
         return this.http.get(url)
-            .pipe(map(res => JSON.parse(res['_body'])));
+            .pipe(catchError(this.handleError));
+    }
+
+    private handleError(error: HttpErrorResponse) {
+        console.error(error);
+        return Observable.throw(error || 'Server error');
     }
 }
