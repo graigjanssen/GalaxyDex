@@ -15,31 +15,45 @@ import { DetailService } from '../../../services/detail.service';
 
 export class DetailComponent implements OnInit, OnChanges {
   @Input() data: any;
+  @Input() status: Status;
+  character: any;
+  films: any;
   
-  private character: any;
-  private films: any;
-
   constructor(private detailService: DetailService) { }
 
   ngOnInit(): void {
-    
+    this.status = {
+      loading: false,
+      success: false,
+      error: false
+    }
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes.data.currentValue) {
+    if (changes.data && changes.data.currentValue) {
       this.character = changes.data.currentValue;
+      this.films = [];
       this.getFilms(this.character.films);
     }
   }
 
-  getFilms(urls: string[]): void {
+  getFilms(urls: string[]): void {  
     this.detailService.getFilms(urls)
       .subscribe(data => {
-        this.films = data;
-        console.log(this.films);
+        if (data) {
+          this.status = {
+            loading: false,
+            success: true,
+            error: false
+          }
+          this.films = data;
+        }
       });
   }
+}
 
-
-
+interface Status {
+  loading: boolean;
+  success: boolean;
+  error: boolean;
 }

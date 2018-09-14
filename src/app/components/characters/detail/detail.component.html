@@ -1,3 +1,14 @@
-<p>
-  detail works!
-</p>
+<div *ngIf="!status.loading">
+  <div *ngIf="films">
+      <div *ngFor="let film of films">
+      <h3>{{film.title}}</h3>
+    </div>
+  </div>
+      
+  <div *ngIf="!films">
+    <h3>Choose a character to view their film appearances</h3>
+  </div>
+</div>
+
+<div *ngIf="status.loading">L O A D I N G . . .</div>
+

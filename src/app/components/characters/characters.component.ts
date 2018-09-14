@@ -7,12 +7,20 @@ import { CharactersService } from '../../services/characters.service';
   styleUrls: ['./characters.component.sass'],
   providers: [CharactersService]
 })
+
 export class CharactersComponent implements OnInit {
+  status: Status;
   characters: any;
   characterData: any;
   constructor(private charactersService: CharactersService) { }
 
   ngOnInit() {
+    this.status = {
+      loading: false,
+      success: false,
+      error: false
+    }
+
     this.charactersService.getCharacters()
       .subscribe(data => {
         this.characters = data.characters;
@@ -20,9 +28,22 @@ export class CharactersComponent implements OnInit {
   }
 
   getCharacterData(url: string) {
+    this.status = {
+      loading: true,
+      success: false,
+      error: false
+    };
     this.charactersService.getCharacterData(url)
       .subscribe(data => {
-        this.characterData = JSON.parse(data['_body']);
+        if (data) {
+          this.characterData = data;
+        }
       });
   }
+}
+
+interface Status {
+  loading: boolean;
+  success: boolean;
+  error: boolean;
 }

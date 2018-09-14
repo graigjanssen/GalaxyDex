@@ -13,6 +13,7 @@ export class CharactersService {
     }
 
     getCharacterData(url): Observable<Response> {
-        return this.http.get(url);
+        return this.http.get(url)
+            .pipe(map(res => JSON.parse(res['_body'])));
     }
 }
