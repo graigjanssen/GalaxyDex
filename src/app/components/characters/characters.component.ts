@@ -4,7 +4,7 @@ import { CharactersService } from '../../services/characters.service';
 @Component({
   selector: 'app-characters',
   templateUrl: './characters.component.html',
-  styleUrls: ['./characters.component.sass'],
+  styleUrls: ['./characters.component.scss'],
   providers: [CharactersService]
 })
 
