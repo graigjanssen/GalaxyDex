@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
@@ -22,7 +21,6 @@ import { DetailComponent } from './components/characters/detail/detail.component
   imports: [
     BrowserModule,
     HttpClientModule,
-    BrowserAnimationsModule,
     MatToolbarModule,
     MatCardModule,
     MatListModule,
