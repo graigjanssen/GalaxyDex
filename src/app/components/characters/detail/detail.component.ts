@@ -7,7 +7,7 @@ import {
 import { DetailService } from '../../../services/detail.service';
 
 @Component({
-  selector: 'app-detail',
+  selector: 'detail',
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.scss'],
   providers: [DetailService]

@@ -1,16 +1,19 @@
+<h2>FILMS</h2>
 <div *ngIf="!status.loading && !status.error">
   <div *ngIf="films">
-      <div *ngFor="let film of films">
-      <h3>{{film.title}}</h3>
-      <h5>Released: {{film.release_date | date: 'fullDate' }}</h5>
-    </div>
+    <mat-card *ngFor="let film of films">
+      <mat-card-title matline>{{film.title}}</mat-card-title>
+      <mat-card-subtitle matline>Released: {{film.release_date | date: 'fullDate' }}</mat-card-subtitle>
+    </mat-card>
   </div>
-      
+
   <div *ngIf="!films">
-    <h3>Choose a character to view their film appearances</h3>
+    <p>Choose a character to view their film appearances</p>
   </div>
 </div>
 
-<div *ngIf="status.loading">L O A D I N G . . .</div>
-<div *ngIf="status.error">error city!</div>
-
+<mat-spinner *ngIf="status.loading"></mat-spinner>
+<mat-card *ngIf="status.error">
+  <h5>The Force was not with you on that request. Please DO again.</h5>
+  <p><small>There is no try.  Do, or do not</small></p>
+</mat-card>
