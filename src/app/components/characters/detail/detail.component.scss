@@ -1,4 +1,5 @@
 .films {
+    position: relative;
     height: 100%;
     max-height: 100%;
     overflow: scroll;
@@ -7,3 +8,10 @@
 .error {
     background-color: rgb(138, 113, 112);
 }
+
+mat-spinner {
+    position: absolute;
+    left: 33%;
+    top: 10%;
+}
+
