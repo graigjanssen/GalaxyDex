@@ -29,8 +29,10 @@ export class CharactersComponent implements OnInit {
   }
 
   handleClick(character: Character) {
-    this.selectedCharacter = character.name;
-    this.getCharacterData(character.url);
+    if (this.selectedCharacter !== character.name) {
+      this.selectedCharacter = character.name;
+      this.getCharacterData(character.url);
+    }
   }
 
   getCharacterData(url: string) {
