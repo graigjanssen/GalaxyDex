@@ -12,6 +12,7 @@ export class CharactersComponent implements OnInit {
   status: Status;
   characters: any;
   characterData: any;
+  selectedCharacter: string;
   constructor(private charactersService: CharactersService) { }
 
   ngOnInit() {
@@ -25,6 +26,11 @@ export class CharactersComponent implements OnInit {
       .subscribe(data => {
         this.characters = data.characters;
       });
+  }
+
+  handleClick(character: Character) {
+    this.selectedCharacter = character.name;
+    this.getCharacterData(character.url);
   }
 
   getCharacterData(url: string) {
@@ -52,4 +58,9 @@ interface Status {
   loading: boolean;
   success: boolean;
   error: boolean;
+}
+
+interface Character {
+  name: string;
+  url: string;
 }
