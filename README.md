@@ -1,5 +1,11 @@
 # GalaxyDex
 
+A coding exercise focusing on integration of third party API.  Uses Angular 6 framework for a simple component based design.  Angular CLI used for quick scaffolding of application, streamlined deployment.  Bootstrap and Angular Material used for acheiving a quick layout and clean appearance.  
+
+Due to time constraints, unit tests were not added to this project.  However, dependencies are installed to make adding tests easier.
+
+## From Angular CLI Readme 
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.1.
 
 ## Development server
